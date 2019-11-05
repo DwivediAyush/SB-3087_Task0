@@ -81,10 +81,30 @@ def partA():
         wrt.writerows(l)
 
 def partB():
-    pass
+    
+
+    img=cv2.imread("cat.jpg")
+    cv2.imshow('image',img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    cv2.imshow("img",img[:,:,2])
+    cv2.imwrite('cat_red.jpg',img[:, :, 2])
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 def partC():
-    pass
+    img2=cv2.imread("flowers.jpg")
+    cv2.imshow('ima',img2)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    bgra = cv2.cvtColor(img2, cv2.COLOR_BGR2BGRA)
+
+    bgra[...,3] = 0.5
+    #print(cv2.split(bgra))
+    cv2.imshow('ima',bgra)
+    cv2.imwrite('flowers_alpha.png',bgra)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 def partD():
     pass
